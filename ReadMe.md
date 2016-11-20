@@ -67,3 +67,9 @@ Run git push heroku master to create a new release using this buildpack.
 (TreasureTampa) [190]dandye@Huginn:~/Projects/TreasureTampa$ git push heroku master
 (TreasureTampa) [191]dandye@Huginn:~/Projects/TreasureTampa$ heroku ps:scale web=1
 ```
+
+Tail Heroku
+-----------
+```
+(TreasureTampa) [192]dandye@Huginn:~/Projects/TreasureTampa$ heroku logs --tail
+```
