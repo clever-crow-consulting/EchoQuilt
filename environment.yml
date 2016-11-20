@@ -1,0 +1,6 @@
+name: TreasureTampa
+dependencies:
+  - python=2.7
+  - Flask>=0.8
+  - pip:
+    - twilio>=3.3.6
