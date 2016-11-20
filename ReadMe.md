@@ -1,4 +1,18 @@
 
+Demo
+----
+
+Text Three Words
+![screen shot 2016-11-20 at 6 49 10 pm](https://cloud.githubusercontent.com/assets/121151/20467255/1785a13c-af52-11e6-8275-b92d0f41a148.png)
+
+The corresponding address and photo are sent via MMS
+![screen shot 2016-11-20 at 6 50 13 pm](https://cloud.githubusercontent.com/assets/121151/20467268/52121cc2-af52-11e6-9751-25028592f4e4.png)
+
+
+Currently, the only two supported locations are:
+ * encounter.inhaled.mime (Dan Dye's house)
+ * encounter.prelude.cube (Patterson St. Park)
+
 Pre-requisites
 --------------
  - [Install the Heroku CLI](https://devcenter.heroku.com/articles/getting-started-with-python#set-up)
