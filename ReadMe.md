@@ -45,9 +45,15 @@ Successfully installed httplib2-0.9.2 pytz-2016.7 six-1.10.0 twilio-5.6.0
 
 ```
 
-
-wordlist = open('/usr/share/dict/words').readlines()
-print len(wordlist)
-
-
-print wordlist
+Deploy to Heroku
+----------------
+```
+(TreasureTampa) [182]dandye@Huginn:~/Projects/TreasureTampa$ pip freeze > requirements.txt
+(TreasureTampa) [186]dandye@Huginn:~/Projects/TreasureTampa$ heroku buildpacks:set heroku/python
+Buildpack set. Next release on peaceful-meadow-37904 will use heroku/python.
+Run git push heroku master to create a new release using this buildpack.
+(TreasureTampa) [188]dandye@Huginn:~/Projects/TreasureTampa$ git add .
+(TreasureTampa) [189]dandye@Huginn:~/Projects/TreasureTampa$ git commit -m "heroku setup"
+(TreasureTampa) [190]dandye@Huginn:~/Projects/TreasureTampa$ git push heroku master
+(TreasureTampa) [191]dandye@Huginn:~/Projects/TreasureTampa$ heroku ps:scale web=1
+```
