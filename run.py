@@ -16,7 +16,8 @@ def hello_monkey():
 @app.route("/", methods=['GET', 'POST'])
 def hello_monkey_mms():
     """Respond to incoming calls with a simple text message."""
-
+    print request
+    print request.__dict__
     resp = twilio.twiml.Response()
     with resp.message("Hello, Mobile Monkey") as m:
         m.media("https://demo.twilio.com/owl.png")
