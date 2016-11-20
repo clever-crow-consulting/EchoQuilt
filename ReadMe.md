@@ -41,8 +41,18 @@ Successfully installed httplib2-0.9.2 pytz-2016.7 six-1.10.0 twilio-5.6.0
 # To deactivate this environment, use:
 # > source deactivate TreasureTampa
 #
+```
 
+Conda venv env vars
+-------------------
 
+[Conda Saved Environment Variables](http://conda.pydata.org/docs/using/envs.html#saved-environment-variables)
+
+```
+(TreasureTampa) [204]dandye@Huginn:~/Projects/TreasureTampa$ mkdir -p ~/anaconda/envs/TreasureTampa/etc/conda/activate.d
+(TreasureTampa) [205]dandye@Huginn:~/Projects/TreasureTampa$ mkdir -p ~/anaconda/envs/TreasureTampa/etc/conda/deactivate.d
+(TreasureTampa) [206]dandye@Huginn:~/Projects/TreasureTampa$ touch ~/anaconda/envs/TreasureTampa/etc/conda/activate.d/env_vars.sh
+(TreasureTampa) [207]dandye@Huginn:~/Projects/TreasureTampa$ touch ~/anaconda/envs/TreasureTampa/etc/conda/deactivate.d/env_vars.sh
 ```
 
 Deploy to Heroku
