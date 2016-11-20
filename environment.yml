@@ -4,3 +4,4 @@ dependencies:
   - Flask>=0.8
   - pip:
     - twilio>=3.3.6
+    - heroku>=0.1.4

@@ -1,4 +1,7 @@
 
+Pre-requisites
+--------------
+ - [Install the Heroku CLI](https://devcenter.heroku.com/articles/getting-started-with-python#set-up)
 
 
 ```
@@ -14,15 +17,15 @@ Linking packages ...
 [      COMPLETE      ]|##########################################################################################################| 100%
 Collecting twilio>=3.3.6
   Downloading twilio-5.6.0.tar.gz (194kB)
-    100% |████████████████████████████████| 194kB 1.5MB/s 
+    100% |████████████████████████████████| 194kB 1.5MB/s
 Collecting httplib2>=0.7 (from twilio>=3.3.6)
   Downloading httplib2-0.9.2.zip (210kB)
-    100% |████████████████████████████████| 215kB 1.4MB/s 
+    100% |████████████████████████████████| 215kB 1.4MB/s
 Collecting six (from twilio>=3.3.6)
   Downloading six-1.10.0-py2.py3-none-any.whl
 Collecting pytz (from twilio>=3.3.6)
   Downloading pytz-2016.7-py2.py3-none-any.whl (480kB)
-    100% |████████████████████████████████| 481kB 1.3MB/s 
+    100% |████████████████████████████████| 481kB 1.3MB/s
 Building wheels for collected packages: twilio, httplib2
   Running setup.py bdist_wheel for twilio ... done
   Stored in directory: /Users/dandye/Library/Caches/pip/wheels/a2/26/f3/df907c29456ce320e66583c50ddd521296b906d92d5b807b92
@@ -41,3 +44,10 @@ Successfully installed httplib2-0.9.2 pytz-2016.7 six-1.10.0 twilio-5.6.0
 
 
 ```
+
+
+wordlist = open('/usr/share/dict/words').readlines()
+print len(wordlist)
+
+
+print wordlist
