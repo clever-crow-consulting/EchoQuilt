@@ -9,10 +9,9 @@ app = Flask(__name__)
 
 def wtw_lookup(tw="encounter.inhaled.mime"):
     wtw = yaml.safe_load(open("./wtw.yaml"))
-    return wtw.get(tw).get("sms")
-    
+    return wtw.get(tw)
 
-@app.route("/", methods=['GET', 'POST'])
+@app.route("/sms", methods=['GET', 'POST'])
 def hello_monkey():
     """Respond to incoming calls with a simple text message."""
     print request
@@ -23,14 +22,17 @@ def hello_monkey():
     return str(resp)
 
 
-@app.route("/mms", methods=['GET', 'POST'])
+@app.route("/", methods=['GET', 'POST'])
 def hello_monkey_mms():
     """Respond to incoming calls with a simple text message."""
     print request
     print request.__dict__
+    three_words = request.values.get("Body", None)
     resp = twilio.twiml.Response()
-    with resp.message("Hello") as m:
-        m.media("https://demo.twilio.com/owl.png")
+    three_words = wtw_lookup(three_words)
+    resp = twilio.twiml.Response()
+    with resp.message(three_words.get("sms")) as m:
+        m.media(three_words.get("mms"))
     return str(resp)
 
 if __name__ == "__main__":

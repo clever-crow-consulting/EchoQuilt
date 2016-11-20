@@ -1,8 +1,8 @@
 
 
 encounter.inhaled.mime:
-  mms: "https://demo.twilio.com/owl.png"
+  mms: "https://s3-us-west-2.amazonaws.com/clevercrow-images/encounter.inhaled.mime/encounter.inhaled.mime.png"
   sms: "909 E Patterson St."
 encounter.prelude.cube:
-  mms: "https://demo.twilio.com/owl.png"
+  mms: "https://s3-us-west-2.amazonaws.com/clevercrow-images/encounter.prelude.cube/encounter.prelude.cube.png"
   sms: "Patterson St. Park"
