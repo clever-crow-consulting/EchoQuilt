@@ -1,0 +1,8 @@
+
+
+encounter.inhaled.mime:
+  mms: "https://demo.twilio.com/owl.png"
+  sms: "909 E Patterson St."
+encounter.prelude.cube:
+  mms: "https://demo.twilio.com/owl.png"
+  sms: "Patterson St. Park"

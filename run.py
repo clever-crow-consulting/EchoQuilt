@@ -1,17 +1,25 @@
 import os
+
+import yaml
+
 from flask import Flask, request, redirect
 import twilio.twiml
 
 app = Flask(__name__)
+
+def wtw_lookup(tw="encounter.inhaled.mime"):
+    wtw = yaml.safe_load(open("./wtw.yaml"))
+    return wtw.get(tw).get("sms")
+    
 
 @app.route("/", methods=['GET', 'POST'])
 def hello_monkey():
     """Respond to incoming calls with a simple text message."""
     print request
     print request.__dict__
-    body = request.values.get("Body", None)
+    three_words = request.values.get("Body", None)
     resp = twilio.twiml.Response()
-    resp.message("Hello, {}".format(body))
+    resp.message(wtw_lookup(three_words))
     return str(resp)
 
 
