@@ -4,22 +4,24 @@ import twilio.twiml
 
 app = Flask(__name__)
 
-@app.route("/sms/", methods=['GET', 'POST'])
+@app.route("/sms", methods=['GET', 'POST'])
 def hello_monkey():
     """Respond to incoming calls with a simple text message."""
-
+    print request
+    print request.__dict__
+    body = request.values.get("Body", None)
     resp = twilio.twiml.Response()
-    resp.message("Hello, Mobile Monkey")
+    resp.message("Hello, {}".format(body))
     return str(resp)
 
 
-@app.route("/", methods=['GET', 'POST'])
+@app.route("/mms", methods=['GET', 'POST'])
 def hello_monkey_mms():
     """Respond to incoming calls with a simple text message."""
     print request
     print request.__dict__
     resp = twilio.twiml.Response()
-    with resp.message("Hello, Mobile Monkey") as m:
+    with resp.message("Hello") as m:
         m.media("https://demo.twilio.com/owl.png")
     return str(resp)
 
