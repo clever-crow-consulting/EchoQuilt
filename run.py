@@ -17,6 +17,7 @@ def latlon2wtw(blob):
     print "Entering latlon2wtw..."
     parts = blob.split("=")
     lat,lon = parts[1].split(",")
+    lon = lon.strip()
     print "lat: {}, lon: {}".format(lat,lon)
     # get three words with Lat Lon
     conn = httplib.HTTPSConnection("api.what3words.com")
