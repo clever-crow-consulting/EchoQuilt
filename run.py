@@ -14,8 +14,10 @@ app = Flask(__name__)
 def latlon2wtw(blob):
     """
     """
+    print "Entering latlon2wtw..."
     parts = blob.split("=")
     lat,lon = parts[1].split(",")
+    print "lat: {}, lon: {}".format(lat,lon)
     # get three words with Lat Lon
     conn = httplib.HTTPSConnection("api.what3words.com")
 
@@ -28,6 +30,7 @@ def latlon2wtw(blob):
     res = conn.getresponse()
     data_str = res.read()
     j = json.loads(data_str)
+    print j
     words = j.get("words")
     return words
 
@@ -36,8 +39,11 @@ def wtw_lookup(tw="encounter.inhaled.mime"):
     return wtw.get(tw)
 
 def guess_format(blob):
+    pring "Starting guess_format..."
     if "https://maps.google.com/maps?q=" in blob:
-        return latlon2wtw(blob)
+        words = latlon2wtw(blob)
+        print "words: {}".format(words)
+        return words
     # TODO: more guesses here
     return wtw_lookup(blob)
 
