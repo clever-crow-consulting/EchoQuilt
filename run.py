@@ -52,8 +52,8 @@ def guess_format(blob):
     if "https://maps.google.com/maps?q=" in blob:
         print "before calling latlon2wtw..."
         words = latlon2wtw(blob)
-        print "words: {}".format(words)
-        return wtw_lookup(words)
+        print "words: |{}|".format(words)
+        return wtw_lookup(words.strip())
     # TODO: more guesses here
     return wtw_lookup(blob)
 
