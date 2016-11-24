@@ -6,3 +6,6 @@ encounter.inhaled.mime:
 encounter.prelude.cube:
   mms: "https://s3-us-west-2.amazonaws.com/clevercrow-images/encounter.prelude.cube/encounter.prelude.cube.png"
   sms: "Patterson St. Park"
+hiding.circus.seasoned:
+  mms: "https://s3-us-west-2.amazonaws.com/clevercrow-images/encounter.prelude.cube/encounter.prelude.cube.png"
+  sms: "Dave's House"
