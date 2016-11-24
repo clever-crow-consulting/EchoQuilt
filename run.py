@@ -42,17 +42,6 @@ def guess_format(blob):
     return wtw_lookup(blob)
 
 
-@app.route("/sms", methods=['GET', 'POST'])
-def hello_monkey():
-    """Respond to incoming calls with a simple text message."""
-    print request
-    print request.__dict__
-    three_words = request.values.get("Body", None)
-    resp = twilio.twiml.Response()
-    resp.message(wtw_lookup(three_words))
-    return str(resp)
-
-
 @app.route("/", methods=['GET', 'POST'])
 def hello_monkey_mms():
     """Respond to incoming calls with a simple text message."""
@@ -61,8 +50,11 @@ def hello_monkey_mms():
     #three_words = request.values.get("Body", None)
     # TODO: sanity check body; error handling
     words = guess_format(request.values.get("Body"))
+    print words
     resp = twilio.twiml.Response()
+
     data = wtw_lookup(words)
+    print data
     with resp.message(data.get("sms")) as m:
         m.media(data.get("mms"))
     return str(resp)
