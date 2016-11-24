@@ -53,15 +53,10 @@ def hello_monkey_mms():
     words = guess_format(request.values.get("Body"))
     print words
     resp = twilio.twiml.Response()
-    print resp
-    with resp.message(resp) as m:
-        pass
-        #m.media(data.get("mms"))
-    return str(resp)
-    #data = wtw_lookup(words)
-    #print data
-    #with resp.message(data.get("sms")) as m:
-    #    m.media(data.get("mms"))
+    data = wtw_lookup(words)
+    print data
+    with resp.message(data.get("sms")) as m:
+        m.media(data.get("mms"))
     return str(resp)
 
 if __name__ == "__main__":
