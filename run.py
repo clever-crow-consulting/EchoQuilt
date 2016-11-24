@@ -26,13 +26,14 @@ def latlon2wtw(blob):
                  "&key={api_key}".format(api_key=API_KEY) + \
                  "&lang=en&format=json&display=full"
 
-    print request_url
+    print "request_url: {}".format(request_url)
 
     conn.request("GET", request_url)
     print conn
     res = conn.getresponse()
     print res
     data_str = res.read()
+    print "data_str: {}".format(data_str)
     j = json.loads(data_str)
     print j
     words = j.get("words")
@@ -44,7 +45,9 @@ def wtw_lookup(tw="encounter.inhaled.mime"):
 
 def guess_format(blob):
     print "Starting guess_format..."
+    print "blob: {}".format(blob)
     if "https://maps.google.com/maps?q=" in blob:
+        print "before calling latlon2wtw..."
         words = latlon2wtw(blob)
         print "words: {}".format(words)
         return words
@@ -61,10 +64,10 @@ def hello_monkey_mms():
     # TODO: sanity check body; error handling
     print request.values.get("Body")
     words = guess_format(request.values.get("Body"))
-    print words
+    print "Words: {}".format(words)
     resp = twilio.twiml.Response()
     data = wtw_lookup(words)
-    print data
+    print "data: {}".format(data)
     with resp.message(data.get("sms")) as m:
         m.media(data.get("mms"))
     return str(resp)
