@@ -39,7 +39,7 @@ def wtw_lookup(tw="encounter.inhaled.mime"):
     return wtw.get(tw)
 
 def guess_format(blob):
-    pring "Starting guess_format..."
+    print "Starting guess_format..."
     if "https://maps.google.com/maps?q=" in blob:
         words = latlon2wtw(blob)
         print "words: {}".format(words)
