@@ -12,3 +12,6 @@ hiding.circus.seasoned:
 decibel.lights.wheat:
   mms: "https://s3-us-west-2.amazonaws.com/clevercrow-images/encounter.prelude.cube/encounter.prelude.cube.png"
   sms: "Dave's House"
+loyal.beehives.lock:
+  mms: "https://s3-us-west-2.amazonaws.com/clevercrow-images/encounter.prelude.cube/encounter.prelude.cube.png"
+  sms: "Dave's House"
