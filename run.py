@@ -53,7 +53,7 @@ def guess_format(blob):
         print "before calling latlon2wtw..."
         words = latlon2wtw(blob)
         print "words: {}".format(words)
-        return words
+        return wtw_lookup(words)
     # TODO: more guesses here
     return wtw_lookup(blob)
 
