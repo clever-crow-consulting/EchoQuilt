@@ -59,7 +59,8 @@ def hello_monkey_mms():
     print request
     print request.__dict__
     #three_words = request.values.get("Body", None)
-    words = guess_format(blob)
+    # TODO: sanity check body; error handling
+    words = guess_format(request.values.get("Body"))
     resp = twilio.twiml.Response()
     data = wtw_lookup(words)
     with resp.message(data.get("sms")) as m:
