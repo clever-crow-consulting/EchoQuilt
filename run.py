@@ -21,10 +21,12 @@ def latlon2wtw(blob):
     # get three words with Lat Lon
     conn = httplib.HTTPSConnection("api.what3words.com")
     print conn
-    request_url = "https://api.what3words.com/v2/reverse?coords=" + \
-                 "{lat}%2C{lon}".format(lat=lat,lon=lon) + \
-                 "&key={api_key}".format(api_key=API_KEY) + \
-                 "&lang=en&format=json&display=full"
+    request_url = \
+    "https://api.what3words.com/v2/reverse?coords={lat}%2C{lon}&key={api_key}&lang=en&format=json&display=full".format(
+    api_key=API_KEY,
+    lat=lat,
+    lon=lon)
+
 
     print "request_url: {}".format(request_url)
 
