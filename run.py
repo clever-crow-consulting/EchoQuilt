@@ -49,14 +49,19 @@ def hello_monkey_mms():
     print request.__dict__
     #three_words = request.values.get("Body", None)
     # TODO: sanity check body; error handling
+    print request.values.get("Body")
     words = guess_format(request.values.get("Body"))
     print words
     resp = twilio.twiml.Response()
-
-    data = wtw_lookup(words)
-    print data
-    with resp.message(data.get("sms")) as m:
-        m.media(data.get("mms"))
+    print resp
+    with resp.message(resp) as m:
+        pass
+        #m.media(data.get("mms"))
+    return str(resp)
+    #data = wtw_lookup(words)
+    #print data
+    #with resp.message(data.get("sms")) as m:
+    #    m.media(data.get("mms"))
     return str(resp)
 
 if __name__ == "__main__":
