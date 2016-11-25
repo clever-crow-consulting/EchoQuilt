@@ -13,6 +13,8 @@ app = Flask(__name__)
 
 def latlon2wtw(blob):
     """
+    takes string like "I'm here: https://maps.google.com/maps?q=28.063540,-82.364304"
+    returns three words like "loyal.beehives.lock"
     """
     print "Entering latlon2wtw..."
     parts = blob.split("=")
@@ -27,25 +29,24 @@ def latlon2wtw(blob):
     api_key=API_KEY,
     lat=lat,
     lon=lon)
-
-
     print "request_url: {}".format(request_url)
-
     conn.request("GET", request_url)
-    print conn
     res = conn.getresponse()
-    print res
     data_str = res.read()
     print "data_str: {}".format(data_str)
     j = json.loads(data_str)
     print j
+    print j.keys()
     words = j.get("words")
     return words
 
-def wtw_lookup(tw="encounter.inhaled.mime"):
+"""
+def wtw_lookup(words="encounter.inhaled.mime"):
     wtw = yaml.safe_load(open("./wtw.yaml"))
-    return wtw.get(tw)
+    return wtw.get(words)
+"""
 
+"""
 def guess_format(blob):
     print "Starting guess_format..."
     print "blob: {}".format(blob)
@@ -56,7 +57,7 @@ def guess_format(blob):
         return wtw_lookup(words.strip())
     # TODO: more guesses here
     return wtw_lookup(blob)
-
+"""
 
 @app.route("/", methods=['GET', 'POST'])
 def hello_monkey_mms():
@@ -65,14 +66,17 @@ def hello_monkey_mms():
     print request.__dict__
     #three_words = request.values.get("Body", None)
     # TODO: sanity check body; error handling
-    print request.values.get("Body")
-    words = guess_format(request.values.get("Body"))
+    sms_body = request.values.get("Body")
+    print "sms_body: {}".format(sms_body)
+    words = latlon2wtw(sms_body)
+    #words = guess_format(request.values.get("Body"))
     print "Words: {}".format(words)
     resp = twilio.twiml.Response()
-    data = wtw_lookup(words)
+    #data = wtw_lookup(words)
     print "data: {}".format(data)
-    with resp.message(data.get("sms")) as m:
-        m.media(data.get("mms"))
+    resp.message(words)
+    #with resp.message(data.get("sms")) as m:
+    #    m.media(data.get("mms"))
     return str(resp)
 
 if __name__ == "__main__":
