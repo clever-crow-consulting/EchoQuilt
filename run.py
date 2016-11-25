@@ -60,23 +60,20 @@ def guess_format(blob):
 """
 
 @app.route("/", methods=['GET', 'POST'])
-def hello_monkey_mms():
+def google_q_string_to_three_words():
     """Respond to incoming calls with a simple text message."""
     print request
     print request.__dict__
-    #three_words = request.values.get("Body", None)
+
     # TODO: sanity check body; error handling
     sms_body = request.values.get("Body")
     print "sms_body: {}".format(sms_body)
+
     words = latlon2wtw(sms_body)
-    #words = guess_format(request.values.get("Body"))
     print "Words: {}".format(words)
+
     resp = twilio.twiml.Response()
-    #data = wtw_lookup(words)
-    print "data: {}".format(data)
     resp.message(words)
-    #with resp.message(data.get("sms")) as m:
-    #    m.media(data.get("mms"))
     return str(resp)
 
 if __name__ == "__main__":
