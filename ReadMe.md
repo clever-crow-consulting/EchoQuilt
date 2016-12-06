@@ -86,4 +86,18 @@ Tail Heroku
 -----------
 ```
 (TreasureTampa) [192]dandye@Huginn:~/Projects/TreasureTampa$ heroku logs --tail
+`
+Reconfigure Heroku
+------------------
+
+```
+(EchoQuilt)[542]ddye@corax:EchoQuilt$ cat ~/anaconda/envs/EchoQuilt/etc/conda/activate.d/env_vars.sh
+TWILIO_ACCOUNT_SID=ABC123...abc123
+TWILIO_AUTH_TOKEN=abc123...abc123
+DANDYE_GOOGLE_VOICE=+18135551234
+TWILIO_PHONE_NUMBER=+18135551234
+```
+
+```
+(EchoQuilt)[540]ddye@corax:EchoQuilt$ git remote add heroku git@heroku.com:peaceful-meadow-37904.git
 ```
